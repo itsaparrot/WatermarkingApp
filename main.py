@@ -30,7 +30,7 @@ def upload_watermark():
     x = round(width / 2) + (width * 0.25)
     y = round(height / 2)
     # paste watermark onto original image
-    im1.paste(cropped_image, (round(x), y), cropped_image)
+    im1.paste(cropped_image, (round(x), y))
     im1.save('img/watermarked_image.png')
     watermarked_image = 'img/watermarked_image.png'
     active_img.config(file=watermarked_image)
@@ -52,4 +52,3 @@ button = tkinter.Button(text='Place Watermark', command=upload_watermark)
 button.grid(column=2, row=2)
 
 window.mainloop()
-
