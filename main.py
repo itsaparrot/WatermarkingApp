@@ -21,7 +21,7 @@ def upload_watermark():
     im1 = Image.open('img/new_image.png')
     width, height = im1.size
     # finds size of image to make the watermark's size relative to it
-    size = (width * 0.35, height * .35)
+    size = (width * 0.3, height * .3)
     image_watermark = Image.open(watermark)
     cropped_image = image_watermark.copy()
     cropped_image.thumbnail(size)
@@ -29,7 +29,7 @@ def upload_watermark():
     cropped_image.putalpha(135)
 
     # coordinates for placing watermark image, placing it on the right side of the image
-    x = round(width / 2) + (width * 0.25)
+    x = round(width / 2) + (width * 0.15)
     y = round(height / 2)
     # paste watermark onto original image, passing the same image as third parameter keeps it transparent
     im1.paste(cropped_image, (round(x), round(y)), cropped_image)
