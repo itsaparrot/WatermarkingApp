@@ -52,3 +52,4 @@ button = tkinter.Button(text='Place Watermark', command=upload_watermark)
 button.grid(column=2, row=2)
 
 window.mainloop()
+
