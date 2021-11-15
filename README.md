@@ -1,5 +1,5 @@
 # WatermarkingApp
-Adds a watermark to a selected image.
+Adds a partially transparent watermark to a selected image.
 Uses a GUI to select to select an images.
-Saves new image as png.
-Uses Tkinter for the GUI, and Pillow for image proccessing.
+The new image will be saved as a png.
+Tkinter is used for the GUI, and Pillow for image proccessing.
