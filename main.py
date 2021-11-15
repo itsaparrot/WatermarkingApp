@@ -20,17 +20,19 @@ def upload_watermark():
     watermark = filedialog.askopenfilename(filetypes=[('Image Files', '*jpeg *jpg *png')])
     im1 = Image.open('img/new_image.png')
     width, height = im1.size
-    # finds size of image for the watermark
+    # finds size of image to make the watermark's size relative to it
     size = (width * 0.35, height * .35)
     image_watermark = Image.open(watermark)
     cropped_image = image_watermark.copy()
     cropped_image.thumbnail(size)
+    # makes the image transparent
+    cropped_image.putalpha(135)
 
     # coordinates for placing watermark image, placing it on the right side of the image
     x = round(width / 2) + (width * 0.25)
     y = round(height / 2)
-    # paste watermark onto original image
-    im1.paste(cropped_image, (round(x), y))
+    # paste watermark onto original image, passing the same image as third parameter keeps it transparent
+    im1.paste(cropped_image, (round(x), round(y)), cropped_image)
     im1.save('img/watermarked_image.png')
     watermarked_image = 'img/watermarked_image.png'
     active_img.config(file=watermarked_image)
